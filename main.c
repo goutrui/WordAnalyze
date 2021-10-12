@@ -12,7 +12,7 @@ char mark[100][5];   //标识符表
 int wordanalysis() {
     int y=0;
     //标识符和保留字
-    if ((test[i] >= 'A'&&test[i] <= 'Z')||(test[i]>='a'&&test[i]<='z')) {
+    if ((test[i] >= 'A'&&test[i] <= 'Z')||(test[i]>='a'&&test[i]<='z'|| ch == '_')) {
         char word[10];
         //保留字表
         char pro[100][100] = {  "If","Else","While","Break","Continue", "Return","if","else","while","break","continue","return"};
