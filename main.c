@@ -56,26 +56,18 @@ int wordanalysis() {
     //数字
     else if (test[i] >= '0' && test[i] <= '9') {
         char x[100];
-        int n = 0;
+        int n = 0,k=0;
         x[n++] = test[i++];
         while (test[i] >= '0' && test[i] <= '9') {
             x[n++] = test[i++];
         }
         x[n] = '\0';
         i--;
-        int num = atoi(x); //将字符串转换成int型
-        //判断该常数是否存在于常数表中
-        if (row != 0) {
-            for(y=0; y<row; y++) {
-                if(number[y]==num) {
-                    printf("Number(%d)\n", num);
-                    return 3;
-                }
-            }
+        printf("Number");
+        for(k=0;k<n;k++){
+            printf("%c",x[i]);
         }
-        //将该常数保存到标识符表中
-        number[row]=num;
-        printf("Number(%d)\n", num);
+        printf("/n");
         row++;
         return 3;
     }
@@ -123,10 +115,10 @@ int wordanalysis() {
             printf("Semicolon\n");
             return 3;
         case '(':
-            printf("Lpar\n");
+            printf("LPar\n");
             return 3;
         case ')':
-            printf("Rpar\n");
+            printf("RPar\n");
             return 3;
         case '{':
             printf("LBrace\n");
