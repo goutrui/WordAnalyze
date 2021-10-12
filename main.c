@@ -101,6 +101,9 @@ int wordanalysis() {
         case '+':
             printf("Plus\n");
             return 3;
+        case '/':
+            printf("Div\n");
+            return 3;
         case '*':
             printf("Mult\n");
             return 3;
