@@ -143,12 +143,12 @@ int wordanalysis() {
     return 0;
 }
 
-int main() {
+int main(int argc, char *argv[]) {
     int c = 0;
     int m;
     i = 0;
     FILE *fp;
-    fp=fopen("test.txt","r");
+    fp=fopen(argv[1],"r");
     if (fp == NULL) {
         printf("can't open file!\n");
         exit(0);
