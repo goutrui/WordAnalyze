@@ -1,21 +1,20 @@
 #include<stdio.h>
-#include<conio.h>
 #include<math.h>
 #include<string.h>
 #include<stdlib.h>
 
 int i, row = 0, line = 0;
-char test[1000];  //testÎÄ¼şÖĞµÄ×Ö·û
-int number[100];	//³£Êı±í
-char mark[100][5];   //±êÊ¶·û±í
+char test[1000];  //testæ–‡ä»¶ä¸­çš„å­—ç¬¦
+int number[100];	//å¸¸æ•°è¡¨
+char mark[100][5];   //æ ‡è¯†ç¬¦è¡¨
 
-//´Ê·¨·ÖÎö
+//è¯æ³•åˆ†æ
 int wordanalysis() {
     int y=0;
-    //±êÊ¶·ûºÍ±£Áô×Ö
+    //æ ‡è¯†ç¬¦å’Œä¿ç•™å­—
     if ((test[i] >= 'A'&&test[i] <= 'Z')||(test[i]>='a'&&test[i]<='z')) {
         char word[10];
-        //±£Áô×Ö±í
+        //ä¿ç•™å­—è¡¨
         char pro[100][100] = {  "If","Else","While","Break","Continue", "Return","if","else","while","break","continue","return"};
         int n = 0;
         word[n++] = test[i++];
@@ -24,7 +23,7 @@ int wordanalysis() {
         }
         word[n] = '\0';
         i--;
-        //ÅĞ¶Ï¸Ã±êÊ¶·ûÊÇ·ñÎª±£Áô×Ö
+        //åˆ¤æ–­è¯¥æ ‡è¯†ç¬¦æ˜¯å¦ä¸ºä¿ç•™å­—
         for (n = 0; n < 100; n++) {
             if (strcmp(word, pro[n]) == 0) {
                 if(n>=6) {
@@ -36,7 +35,7 @@ int wordanalysis() {
                 }
             }
         }
-        //ÅĞ¶Ï¸Ã±êÊ¶·ûÊÇ·ñÔÚ±êÊ¶·û±íÖĞ
+        //åˆ¤æ–­è¯¥æ ‡è¯†ç¬¦æ˜¯å¦åœ¨æ ‡è¯†ç¬¦è¡¨ä¸­
         if (line != 0) {
             int q = 0;
             while (q<line) {
@@ -47,14 +46,14 @@ int wordanalysis() {
             }
 
         }
-        //½«¸Ã±êÊ¶·û±£´æµ½±êÊ¶·û±íÖĞ
+        //å°†è¯¥æ ‡è¯†ç¬¦ä¿å­˜åˆ°æ ‡è¯†ç¬¦è¡¨ä¸­
         strcpy(mark[line], word);
         printf("Ident(%s)\n",word);
         line++;
         return 3;
 
     }
-    //Êı×Ö
+    //æ•°å­—
     else if (test[i] >= '0' && test[i] <= '9') {
         char x[100];
         int n = 0;
@@ -64,8 +63,8 @@ int wordanalysis() {
         }
         x[n] = '\0';
         i--;
-        int num = atoi(x); //½«×Ö·û´®×ª»»³ÉintĞÍ
-        //ÅĞ¶Ï¸Ã³£ÊıÊÇ·ñ´æÔÚÓÚ³£Êı±íÖĞ
+        int num = atoi(x); //å°†å­—ç¬¦ä¸²è½¬æ¢æˆintå‹
+        //åˆ¤æ–­è¯¥å¸¸æ•°æ˜¯å¦å­˜åœ¨äºå¸¸æ•°è¡¨ä¸­
         if (row != 0) {
             for(y=0; y<row; y++) {
                 if(number[y]==num) {
@@ -74,13 +73,13 @@ int wordanalysis() {
                 }
             }
         }
-        //½«¸Ã³£Êı±£´æµ½±êÊ¶·û±íÖĞ
+        //å°†è¯¥å¸¸æ•°ä¿å­˜åˆ°æ ‡è¯†ç¬¦è¡¨ä¸­
         number[row]=num;
         printf("Number(%d)\n", num);
         row++;
         return 3;
     }
-    //¸÷ÖÖ·ûºÅ
+    //å„ç§ç¬¦å·
     else
         switch (test[i]) {
         case ' ':
