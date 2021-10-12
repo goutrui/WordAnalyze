@@ -54,21 +54,14 @@ int wordanalysis() {
 
     }
     //数字
-    else if (test[i] >= '0' && test[i] <= '9') {
-        char x[100];
-        int n = 0,k=0;
-        x[n++] = test[i++];
+        else if (test[i] >= '0' && test[i] <= '9') {
+        printf("Number(");
         while (test[i] >= '0' && test[i] <= '9') {
-            x[n++] = test[i++];
+            printf("%c",test[i]);
+            i++;
         }
-        x[n] = '\0';
         i--;
-        printf("Number");
-        for(k=0;k<n;k++){
-            printf("%c",x[i]);
-        }
-        printf("/n");
-        row++;
+        printf(")\n");
         return 3;
     }
     //各种符号
